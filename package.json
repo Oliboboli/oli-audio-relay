@@ -1,1 +1,1 @@
-{"dependencies":{"ytdl-core":"^4.11.5"},"description":"Live audio relay for Highrise music bot","engines":{"node":"20.x"},"main":"server.js","name":"oli-audio-relay","scripts":{"start":"node server.js"},"version":"1.0.0"}
+{"description":"Live audio relay for Highrise music bot","engines":{"node":"20.x"},"main":"server.js","name":"oli-audio-relay","scripts":{"start":"node server.js"},"version":"1.0.0"}
