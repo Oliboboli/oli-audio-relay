@@ -32,6 +32,19 @@ function startStream(res) {
 }
 
 const server = http.createServer((req, res) => {
+  // Clear buffer and disconnect listeners (for !skip)
+  if (req.url === '/clear' && (req.method === 'POST' || req.method === 'DELETE')) {
+    buffer = [];
+    hasStream = false;
+    for (const listener of listeners) {
+      try { listener.end(); } catch (e) {}
+    }
+    listeners.clear();
+    res.writeHead(200, {'Access-Control-Allow-Origin': '*'});
+    res.end('cleared');
+    return;
+  }
+
   if (req.url !== '/stream') {
     res.writeHead(404);
     res.end();
