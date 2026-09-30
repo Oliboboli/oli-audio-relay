@@ -51,7 +51,7 @@ const server = http.createServer((req, res) => {
   }
 
   if (req.method === 'GET') {
-    if (hasStream) {
+    if (hasStream || buffer.length > 0) {
       startStream(res);
     } else {
       const timer = setTimeout(() => {
